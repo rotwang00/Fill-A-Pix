@@ -1,34 +1,40 @@
 function processClick() {
     toggleState(this);
     const clickedSquareID = this.id;
-    const y = clickedSquareID[1];
-    const x = clickedSquareID[0];
-    console.log(`Row ${y}, column ${x}`);
-    // if (x > 0) {
-    //     const newID = `${x - 1}${y}`;
-    //     const sq = document.getElementById(newID);
-    //     toggleState(sq);
-    // }
-    if (x < 4) {
-        const newID = `${x + 1}${y}`;
+    const x = parseInt(clickedSquareID[1]);
+    const y = parseInt(clickedSquareID[0]);
+    // console.log(`Y = ${y}, X = ${x}`);
+    if (x > 0) {
+        const newID = `${y}${x - 1}`;
         const sq = document.getElementById(newID);
         toggleState(sq);
     }
-    // if (y > 0) {
-    //     const newID = `${x}${y - 1}`;
-    //     const sq = document.getElementById(newID);
-    //     toggleState(sq);
-    // }
-    // if (y < 4) {
-    //     const newID = `${x}${y + 1}`;
-    //     const sq = document.getElementById(newID);
-    //     toggleState(sq);
-    // }
+    if (x < 4) {
+        const newID = `${y}${x + 1}`;
+        const sq = document.getElementById(newID);
+        toggleState(sq);
+    }
+    if (y > 0) {
+        const newID = `${y - 1}${x}`;
+        const sq = document.getElementById(newID);
+        toggleState(sq);
+    }
+    if (y < 4) {
+        const newID = `${y + 1}${x}`;
+        const sq = document.getElementById(newID);
+        toggleState(sq);
+    }
 }
 
 function toggleState(current) {
     const id = current.id;
-    // console.log(`Toggled square ${id}`);
+    const classes = current.classList;
+    if (classes.contains("selected")) {
+        numberLit++;
+    } else {
+        numberLit--;
+    }
+    console.log(numberLit);
     current.classList.toggle("selected");
 }
 
@@ -64,3 +70,4 @@ function createGrid() {
 }
 
 createGrid();
+let numberLit = 25;
