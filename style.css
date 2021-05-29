@@ -8,10 +8,14 @@ button {
     font-size: 0px;
 }
 
-.selected {
+.lit {
     background-color: pink;
 }
 
 #puzzle {
     font-size: 0px;
+}
+
+#score {
+    font-size: 1.5em;
 }

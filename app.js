@@ -29,13 +29,23 @@ function processClick() {
 function toggleState(current) {
     const id = current.id;
     const classes = current.classList;
-    if (classes.contains("selected")) {
+    if (classes.contains("lit")) {
         numberLit++;
     } else {
         numberLit--;
     }
     console.log(numberLit);
-    current.classList.toggle("selected");
+    current.classList.toggle("lit");
+    displayScore.innerHTML = `Number lit: ${numberLit}`;
+    if (numberLit === 0) {
+        win();
+    }
+}
+
+function win() {
+    const winMessage = document.createElement("p");
+    winMessage.innerHTML = "You win!"
+    score.appendChild(winMessage);
 }
 
 function createGrid() {
@@ -71,3 +81,4 @@ function createGrid() {
 
 createGrid();
 let numberLit = 25;
+const displayScore = document.getElementById("score");
