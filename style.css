@@ -1,0 +1,17 @@
+button {
+    height: 30px;
+    width: 30px;
+    background-color: blue;
+    border: 1px solid black;
+    margin: 0px;
+    padding: 0px;
+    font-size: 0px;
+}
+
+.selected {
+    background-color: pink;
+}
+
+#puzzle {
+    font-size: 0px;
+}
