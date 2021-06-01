@@ -46,6 +46,11 @@ function win() {
     const winMessage = document.createElement("p");
     winMessage.innerHTML = "You win!"
     score.appendChild(winMessage);
+    const resetButton = document.createElement("button");
+    resetButton.innerHTML = "Play again";
+    score.appendChild(resetButton);
+    resetButton.addEventListener("click", resetGame, false);
+    resetButton.setAttribute("id", "resetButton");
 }
 
 function createGrid() {
@@ -65,6 +70,9 @@ function createGrid() {
             const newSquare = document.createElement("button");
             newSquare.setAttribute("id", `${i}${j}`);
 
+            // Add class
+            newSquare.classList.add("gridButton");
+
             // Add event listener
             newSquare.addEventListener("click", processClick, false);
 
@@ -78,6 +86,11 @@ function createGrid() {
     const puzzle = document.getElementById("puzzle");
     puzzle.appendChild(newGrid);
 }
+
+function resetGame() {
+    
+}
+
 
 createGrid();
 let numberLit = 25;

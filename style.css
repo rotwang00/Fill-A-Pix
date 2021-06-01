@@ -1,7 +1,7 @@
-button {
+.gridButton {
     height: 30px;
     width: 30px;
-    background-color: blue;
+    background-color: pink;
     border: 1px solid black;
     margin: 0px;
     padding: 0px;
@@ -9,7 +9,7 @@ button {
 }
 
 .lit {
-    background-color: pink;
+    background-color: darkslategrey;
 }
 
 #puzzle {
@@ -18,4 +18,11 @@ button {
 
 #score {
     font-size: 1.5em;
+}
+
+#resetButton {
+    height: 30px;
+    width: auto;
+    background-color: darkslategray;
+    color: white;
 }
