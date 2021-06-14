@@ -1,9 +1,14 @@
+let numberLit = 25;
+const displayScore = document.getElementById("score");
+let size = 5;
+let cellStatus = Array.from(Array(size), () => new Array(size));
+
 function processClick() {
     toggleState(this);
     const clickedSquareID = this.id;
     const x = parseInt(clickedSquareID[1]);
     const y = parseInt(clickedSquareID[0]);
-    // console.log(`Y = ${y}, X = ${x}`);
+    console.log(`Y = ${y}, X = ${x}`);
     if (x > 0) {
         const newID = `${y}${x - 1}`;
         const sq = document.getElementById(newID);
@@ -24,18 +29,21 @@ function processClick() {
         const sq = document.getElementById(newID);
         toggleState(sq);
     }
+    console.log(cellStatus);
 }
 
 function toggleState(current) {
     const id = current.id;
+    const x = parseInt(current.id[1]);
+    const y = parseInt(current.id[0]);
     const classes = current.classList;
     if (classes.contains("lit")) {
         numberLit++;
     } else {
         numberLit--;
     }
-    console.log(numberLit);
     current.classList.toggle("lit");
+    cellStatus[x][y] = 1 - cellStatus[x][y];
     displayScore.innerHTML = `Number lit: ${numberLit}`;
     if (numberLit === 0) {
         win();
@@ -44,7 +52,7 @@ function toggleState(current) {
 
 function win() {
     const winMessage = document.createElement("p");
-    winMessage.innerHTML = "You win!"
+    winMessage.innerHTML = "You win!";
     score.appendChild(winMessage);
     const resetButton = document.createElement("button");
     resetButton.innerHTML = "Play again";
@@ -54,7 +62,9 @@ function win() {
 }
 
 function createGrid() {
-    let size = 5;
+    numberLit = 25;
+
+    // This grid will have all cells lit
 
     // Create grid div
     const newGrid = document.createElement("div");
@@ -78,6 +88,9 @@ function createGrid() {
 
             // Append square to row div
             newRow.appendChild(newSquare);
+
+            // Set status of cell. 0 = dark, 1 = lit
+            cellStatus[i][j] = 1;
         }
         // Append row div to grid div
         newGrid.appendChild(newRow);
@@ -87,11 +100,10 @@ function createGrid() {
     puzzle.appendChild(newGrid);
 }
 
-function resetGame() {
-    
+function resetGame() {}
+
+function startGame() {
+    createGrid();
 }
 
-
-createGrid();
-let numberLit = 25;
-const displayScore = document.getElementById("score");
+startGame();
