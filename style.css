@@ -1,24 +1,29 @@
 .gridButton {
-    height: 30px;
-    width: 30px;
-    background-color: pink;
+    height: 40px;
+    width: 40px;
+    background-color: white;
     border: 1px solid black;
     margin: 0px;
     padding: 0px;
-    font-size: 0px;
+    font-size: 24px;
+    vertical-align: top;
 }
 
-.lit {
-    background-color: darkslategrey;
+.empty {
+    background-color: white;
+    color: black;
+}
+
+.filled {
+    background-color: black;
+    color: white;
+}
+
+.ruledOut {
+    background-color: lightgray;
+    color: black;
 }
 
 #puzzle {
     font-size: 0px;
-}
-
-#resetButton {
-    height: 30px;
-    width: auto;
-    background-color: darkslategray;
-    color: white;
 }
